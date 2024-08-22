@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
         background-color: black;
         height: 100vh;
 
-        overflow-y: hidden;
     }
 
     @keyframes textSmoothGlow {
