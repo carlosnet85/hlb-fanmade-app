@@ -1,13 +1,13 @@
 import { Header } from "./Components/Header/Header";
 import GlobalStyle from "./style/GlobalStyle";
-import { DemoCarousel } from "./Components/Carousel/Carousel";
-import { HelpWindowButton } from "./Components/HelpWindowButton/HelpWindowButton";
+import { DiscsCarousel } from "./Components/Carousel/Carousel";
 
 import { useState, useEffect } from "react";
 
-import { PropagateLoader } from "react-spinners";
+import { PulseLoader } from "react-spinners";
 import { Footer } from "./Components/Footer/Footer";
-
+import { ContextProvider } from "./Components/Context/Context";
+import { Container } from "./Components/Container/Container";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,28 +20,28 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ContextProvider>
         <GlobalStyle />
-        <HelpWindowButton />
+        <Container>
         {isLoading ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-            }}
-          >
-            <PropagateLoader color={"#509046"} loading={true} size={15} />
-          </div>
+            <PulseLoader style={{ 
+                 position: "absolute",
+                 top: "50%",
+                 left: "50%",
+                 transform: "translate(-50%, -50%)",
+                 padding: "2rem",
+               }} 
+               color={"#959067"} 
+               loading={true}  />
         ) : (
           <>
             <Header />
-            <DemoCarousel />
+            <DiscsCarousel />
             <Footer />
           </>
         )}
-    </>
+        </ Container>
+    </ContextProvider>
   );
 }
 

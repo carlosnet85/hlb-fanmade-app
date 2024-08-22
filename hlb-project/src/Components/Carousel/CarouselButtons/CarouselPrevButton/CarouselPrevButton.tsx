@@ -1,10 +1,9 @@
 import * as S from "./CarouselPrevButton-style";
-
-import { useEffect, useState } from "react";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { SlArrowLeft } from "react-icons/sl";
 
 import sound from "../../../../assets/sounds/change.mp3";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useContext } from "react";
+import { Context } from "../../../Context/Context";
 
 interface CarouselPrevButtonProps {
   isDisabled: boolean;
@@ -15,36 +14,28 @@ export const CarouselPrevButton: React.FC<CarouselPrevButtonProps> = ({
   isDisabled,
   onClick,
 }) => {
-  const [isActive, setIsActive] = useState(false);
+  
   const audio = new Audio(sound);
+  const { isAnimating, setIsAnimating } = useContext(Context);
 
   const handleClick = () => {
-    if (!isDisabled) {
+    if (!isAnimating) {
       onClick();
       audio.play();
-      setIsActive(!isActive);
+      setIsAnimating(!isAnimating);
     }
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsActive(false);
-    }, 800);
-
-    return () => clearTimeout(timeout);
-  }, [isActive]);
 
   return (
     <S.CarouselPrevButton
       disabled={isDisabled}
       onClick={handleClick}
-      $active={isActive}
+      $active={isAnimating}
     >
-      {isActive && !isDisabled ? (
-        <AiOutlineLoading3Quarters />
-      ) : (
-        <FaArrowAltCircleLeft />
-      )}
+
+        <SlArrowLeft />
+     
     </S.CarouselPrevButton>
   );
 };
+

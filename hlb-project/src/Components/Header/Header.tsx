@@ -1,12 +1,14 @@
 import * as S from "./Header-style";
-import logo from "../../assets/hlb-logo.png";
+import logo from "../../assets/hlb-logo.webp";
 
 export const Header: React.FC = () => {
   return (
+    <S.HeaderContainer>
     <S.LogoContainer>
-      <S.LogoLink href="https://humanitys-last-breath.com/" >
+      <a href="https://humanitys-last-breath.com/" >
         <S.Logo src={logo} />
-      </S.LogoLink>
+      </a>
     </S.LogoContainer>
+    </S.HeaderContainer>
   );
 };

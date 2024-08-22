@@ -1,49 +1,41 @@
 import * as S from "./CarouselNextButton-style";
-import { useEffect, useState } from "react";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { SlArrowRight } from "react-icons/sl";
 
 import sound from "../../../../assets/sounds/change.mp3";
+import { useContext } from "react";
+import { Context } from "../../../Context/Context";
 
 interface CarouselNextButtonProps {
-  isDisabled: boolean;
   onClick: () => void;
+  isDisabled: boolean;
 }
 
 export const CarouselNextButton: React.FC<CarouselNextButtonProps> = ({
   isDisabled,
   onClick,
 }) => {
-  const [isActive, setIsActive] = useState(false);
+  
   const audio = new Audio(sound);
+  const { isAnimating, setIsAnimating } = useContext(Context);
 
   const handleClick = () => {
-    if (!isDisabled) {
+    if (!isAnimating) {
       onClick();
       audio.play();
-      setIsActive(!isActive);
+      setIsAnimating(!isAnimating);
+      
     }
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsActive(false);
-    }, 800);
-
-    return () => clearTimeout(timeout);
-  }, [isActive]);
 
   return (
     <S.CarouselNextButton
       disabled={isDisabled}
       onClick={handleClick}
-      $active={isActive}
+      $active={isAnimating}
     >
-      {isActive && !isDisabled ? (
-        <AiOutlineLoading3Quarters />
-      ) : (
-        <FaArrowAltCircleRight />
-      )}
+   
+        <SlArrowRight />
+   
     </S.CarouselNextButton>
   );
 };

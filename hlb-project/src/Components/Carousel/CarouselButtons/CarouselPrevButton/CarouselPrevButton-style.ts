@@ -6,7 +6,7 @@ export const CarouselPrevButton = styled.button<{
 }>`
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 0;
 
   background: none;
   border: none;
@@ -17,9 +17,7 @@ export const CarouselPrevButton = styled.button<{
   justify-content: center;
 
   z-index: ${(props) => (props.$active ? "-1" : "2")};
-  color: ${(props) => (props.disabled ? "rgba(255, 255, 255, 0.5)" : "white")};
- 
-  animation: ${(props) => (props.$active && !props.disabled ? "rotate 500ms infinite linear" : "none")};
+  color: ${(props) => (props.disabled || props.$active ? "rgba(255, 255, 255, 0.5)" : "#959667")};
 
   transition: transform 200ms, color 300ms;
   transition-timing-function: ease-in-out;
@@ -33,12 +31,10 @@ export const CarouselPrevButton = styled.button<{
     font-size: 5rem;
   }
 
-  @media screen and (max-width: 425px) {
-    top: 67.5%;
-    left: 8px;
-
+  @media (max-width: 425px) {
+    bottom: 0;
     svg {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
   }
 `;

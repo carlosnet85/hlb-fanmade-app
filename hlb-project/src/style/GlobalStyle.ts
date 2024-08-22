@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import Background from '../assets/background/background.png';
 
 const GlobalStyle = createGlobalStyle`
     *, *::after, *::before { 
@@ -7,22 +6,31 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;  
     }
-
-    // not in the mood to lazy load this
  
     body {
-        font-family: 'Sedan', sans-serif;
+        position: relative;
+        font-family: 'Spectral SC', serif;
         background-color: black;
         height: 100vh;
 
-        background-image: url(${Background});
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-
         overflow-y: hidden;
-
     }
+
+    @keyframes textSmoothGlow {
+            0%, 100% {
+                text-shadow: 0 0 0px #000000;
+            } 50% {
+                text-shadow: 0 0 3px #e9eae0;
+            }
+        }
+
+    @keyframes containerSmoothGlow {
+            0%, 100% {
+                box-shadow: 0 0 0px #000000;
+            } 50% {
+                box-shadow: 0 0 8px #e9eae0;
+            }
+        }
 `
 
 export default GlobalStyle;

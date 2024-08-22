@@ -1,20 +1,34 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import * as S from "./Carousel-style";
+import styled from "styled-components";
+
 import { customAnimationHandler } from "./AnimationHandler/AnimationHandler.ts";
 import { Carousel } from "react-responsive-carousel";
-import { OptionCard } from "../OptionCard/OptionCard.tsx";
+import { OptionCard } from "../DiscCard/DiscCard.tsx";
 import { CarouselPrevButton } from "./CarouselButtons/CarouselPrevButton/CarouselPrevButton.tsx";
 import { CarouselNextButton } from "./CarouselButtons/CarouselNextButton/CarouselNextButton.tsx";
 import { discs } from "../../Data/Data.ts";
+import { Context } from "../Context/Context.tsx";
+import { useContext } from "react";
 
-export const DemoCarousel: React.FC = () => {
+export const CarouselContainer = styled.main`
+    width: 100vw;
+    
+    display: flex;
+    place-items: center; 
+    place-content: center;
+
+`
+
+export const DiscsCarousel: React.FC = () => {
+  const { isAnimating } = useContext(Context);
+
   return (
-    <S.CarouselContainer>
+    <CarouselContainer>
       <Carousel
         showArrows
         showThumbs={false}
         showStatus={false}
-        showIndicators={false}
+        showIndicators={true}
         animationHandler={customAnimationHandler}
         swipeable={false}
         renderArrowPrev={(onClickHandler, hasPrev) => (
@@ -25,9 +39,9 @@ export const DemoCarousel: React.FC = () => {
         )}
       >
         {discs.map((disc) => (
-          <OptionCard key={disc.id} disc={disc} />
+          <OptionCard key={disc.id} disc={disc} onAnimation={isAnimating} />
         ))}
       </Carousel>
-    </S.CarouselContainer>
+    </CarouselContainer>
   );
 };

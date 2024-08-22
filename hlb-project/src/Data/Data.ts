@@ -32,7 +32,7 @@ export const discs: Disc[] = [
         'title': 'Linger',
         'description': '"I Feel the pain become me."',
         'redirectUrl': 'https://youtu.be/qDuFp08G33A',
-        'image': disc2
+        'image': disc2,
     },
     {
         'id': 3,
