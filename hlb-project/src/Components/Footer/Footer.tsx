@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
         </p>
       </S.FooterText>
       <S.FooterText>
-        <p>Click on the discs to listen to their music!</p>
+        <p>Click on the song name to listen to the music!</p>
         <p>
           Be sure to check out their{" "}
           <a href="https://humanityslastbreathofficial.bandcamp.com/album/ashen">

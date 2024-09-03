@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
             0%, 100% {
                 text-shadow: 0 0 0px #000000;
             } 50% {
-                text-shadow: 0 0 3px #e9eae0;
+                text-shadow: 0 0 2px #e9eae0;
             }
         }
 
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
             0%, 100% {
                 box-shadow: 0 0 0px #000000;
             } 50% {
-                box-shadow: 0 0 8px #e9eae0;
+                box-shadow: 0 0 5px #e9eae0;
             }
         }
 `

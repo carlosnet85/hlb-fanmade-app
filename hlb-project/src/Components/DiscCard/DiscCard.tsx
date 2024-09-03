@@ -14,8 +14,8 @@ export const OptionCard: React.FC<OptionCardProps> = ({
 }) => {
   return (
     <S.CardContainer>
-      <S.CardTitle onAnimation={onAnimation}>{disc.title}</S.CardTitle>
-      <S.CardLogoContainer href={disc.redirectUrl} target="_blank">
+      <S.CardTitle href={disc.redirectUrl} target="_blank" onAnimation={onAnimation}>{disc.title}</S.CardTitle>
+      <S.CardLogoContainer>
       
 
           <LazyLoadImage

@@ -13,12 +13,10 @@ export const CardContainer = styled.div`
 
   @media (max-width: 425px) {
     padding: 4rem;
-    
   }
-  
 `;
 
-export const CardLogoContainer = styled.a`
+export const CardLogoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +28,7 @@ export const CardLogoContainer = styled.a`
 
   transition: transform 500ms, filter 500ms;
   transition-timing-function: ease-in-out;
-  
+
   img,
   [role="img"] {
     width: 100%;
@@ -38,7 +36,6 @@ export const CardLogoContainer = styled.a`
 
     object-fit: cover;
     animation: rotate 50s infinite linear;
-
 
     border-radius: 100%;
 
@@ -50,21 +47,28 @@ export const CardLogoContainer = styled.a`
   }
 `;
 
-export const CardTitle = styled.h1<{ onAnimation: boolean }>`
-  font-size: 8vh; 
+export const CardTitle = styled.a<{ onAnimation: boolean }>`
+  font-size: 8vh;
   font-weight: bolder;
+  text-decoration: none;
   height: 6rem;
   color: #959067;
   white-space: nowrap;
 
   opacity: ${(props) => (props.onAnimation ? "0" : "1")};
   transition: ${(props) =>
-    props.onAnimation ? "none" : "opacity 550ms, margin-right 800ms, text-shadow 800ms"};
+    props.onAnimation
+      ? "none"
+      : "opacity 550ms, margin-right 800ms, text-shadow 800ms, color 950ms"};
 
-    @media (max-width: 640px) {
-      font-size: 10vw;
-      white-space: normal;
-    }
+  @media (max-width: 640px) {
+    font-size: 10vw;
+    white-space: normal;
+  }
+  
+  &:hover {
+    color: #d8d2a1
+  }
 `;
 
 export const CardDescription = styled.p<{ onAnimation: boolean }>`
@@ -74,5 +78,6 @@ export const CardDescription = styled.p<{ onAnimation: boolean }>`
   color: white;
 
   opacity: ${(props) => (props.onAnimation ? "0" : "1")};
-  transition: ${(props) => props.onAnimation ? "none" : "opacity 550ms, margin-right 800ms"};
+  transition: ${(props) =>
+    props.onAnimation ? "none" : "opacity 550ms, margin-right 800ms"};
 `;
