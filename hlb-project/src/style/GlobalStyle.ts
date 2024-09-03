@@ -9,10 +9,9 @@ const GlobalStyle = createGlobalStyle`
  
     body {
         position: relative;
-        font-family: 'Spectral SC', serif;
+        font-family: "Cinzel", serif;
         background-color: black;
         height: 100vh;
-
     }
 
     @keyframes textSmoothGlow {
