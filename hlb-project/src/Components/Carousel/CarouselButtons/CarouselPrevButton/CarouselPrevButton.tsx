@@ -1,5 +1,5 @@
 import * as S from "./CarouselPrevButton-style";
-import { SlArrowLeft } from "react-icons/sl";
+import { FaChevronCircleLeft } from "react-icons/fa";
 
 import sound from "../../../../assets/sounds/change.mp3";
 import { useContext } from "react";
@@ -33,7 +33,7 @@ export const CarouselPrevButton: React.FC<CarouselPrevButtonProps> = ({
       $active={isAnimating}
     >
 
-        <SlArrowLeft />
+        <FaChevronCircleLeft />
      
     </S.CarouselPrevButton>
   );
