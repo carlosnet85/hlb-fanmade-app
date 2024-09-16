@@ -18,6 +18,7 @@ export const CarouselPrevButton: React.FC<CarouselPrevButtonProps> = ({
   const audio = new Audio(sound);
   const { isAnimating, setIsAnimating } = useContext(Context);
 
+
   const handleClick = () => {
     if (!isAnimating) {
       onClick();

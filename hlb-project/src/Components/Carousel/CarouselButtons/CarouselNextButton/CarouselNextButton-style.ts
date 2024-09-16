@@ -10,31 +10,28 @@ export const CarouselNextButton = styled.button<{
 
   background: none;
   border: none;
-  border-radius: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  opacity: ${(props) => (props.disabled || props.$active ? "0" : "1")};
+  z-index: 10;
 
-  z-index: ${(props) => (props.$active ? "-1" : "2")};
-  color: ${(props) => (props.disabled || props.$active ? "rgba(255, 255, 255, 0.5)" : "#959667")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 
-  transition: transform 200ms, color 300ms;
-  transition-timing-function: ease-in-out;
-
-  &:hover {
-    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-    transform: ${(props) => (props.disabled ? "none" : "scale(1.2)")};
-  }
+  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1);
 
   svg {
     font-size: 5rem;
-  }
+    border-radius: 100%;
+    color: ${(props) =>
+      props.disabled || props.$active
+        ? "rgba(255, 255, 255, 0.2)"
+        : "rgba(234, 237, 109, 0.3)"};
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 
-  @media (max-width: 425px) {
-    bottom: 0;
-    svg {
-      font-size: 3rem;
+    transition: color 500ms cubic-bezier(0.23, 1, 0.32, 1);
+
+    @media screen and (max-width: 640px) {
+      font-size: 4.2rem;
     }
   }
 `;

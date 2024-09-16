@@ -3,17 +3,15 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  width: 80vw;
   margin: 0 auto;
 
-  padding: 6rem;
-  gap: 2rem;
+  width: clamp(60vw, 40rem, 80vw);
+  height: min(65vh, 80rem);
 
-  @media (max-width: 425px) {
-    padding: 4rem;
-  }
+  gap: 2rem;
 `;
 
 export const CardLogoContainer = styled.div`
@@ -48,36 +46,45 @@ export const CardLogoContainer = styled.div`
 `;
 
 export const CardTitle = styled.a<{ onAnimation: boolean }>`
-  font-size: 8vh;
+  font-size: calc(2.5vw + 2vh);
   font-weight: bolder;
   text-decoration: none;
-  height: 6rem;
-  color: #959067;
+
+  color: transparent;
+  background: linear-gradient(
+    45deg,
+    #d8d2a1 0%,
+    #fff673 50%,
+    #d8d2a1 100%
+  );
+  background-size: 200% 200%;
+  background-position: ${(props) =>
+    props.onAnimation ? "0% 0%" : "100% 100%"};
+ 
+  background-clip: text;
+  -webkit-background-clip: text;
   white-space: nowrap;
 
   opacity: ${(props) => (props.onAnimation ? "0" : "1")};
   transition: ${(props) =>
     props.onAnimation
       ? "none"
-      : "opacity 550ms, margin-right 800ms, text-shadow 800ms, color 950ms"};
+      : "opacity 550ms, text-shadow 800ms, background-position 1100ms"};
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  @media (max-width: 640px) {
-    font-size: 10vw;
-    white-space: normal;
-  }
-  
   &:hover {
-    color: #d8d2a1
+    background-position: 50% 50%;
   }
 `;
 
-export const CardDescription = styled.p<{ onAnimation: boolean }>`
-  font-size: 3vh;
+export const CardDescription = styled.q<{ onAnimation: boolean }>`
+  width: max-content;
+  font-size: calc(1.1vw + 1.2vh);
   font-weight: 100;
   font-style: italic;
   color: white;
 
   opacity: ${(props) => (props.onAnimation ? "0" : "1")};
   transition: ${(props) =>
-    props.onAnimation ? "none" : "opacity 550ms, margin-right 800ms"};
+    props.onAnimation ? "none" : "opacity 550ms"};
 `;

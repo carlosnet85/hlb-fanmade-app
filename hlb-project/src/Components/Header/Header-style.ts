@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const LogoContainer = styled.div`
-  width: 40vh;
+  width: 45vw;
 
 `;
 

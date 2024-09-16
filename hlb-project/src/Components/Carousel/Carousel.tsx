@@ -12,11 +12,9 @@ import { useContext } from "react";
 
 export const CarouselContainer = styled.main`
     width: 100vw;
-    
     display: flex;
     place-items: center; 
     place-content: center;
-
 `
 
 export const DiscsCarousel: React.FC = () => {

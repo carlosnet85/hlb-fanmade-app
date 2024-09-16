@@ -21,13 +21,14 @@ export const Footer: React.FC = () => {
         </p>
       </S.FooterText>
       <S.FooterText>
-        <p>Click on the song name to listen to the music!</p>
+        <p>Click on the song name to listen it!</p>
         <p>
           Be sure to check out their{" "}
           <a href="https://humanityslastbreathofficial.bandcamp.com/album/ashen">
             discography.
           </a>
         </p>
+        
       </S.FooterText>
       
       <S.MobileFooterButton onClick={() => setShowText(!showText)}>

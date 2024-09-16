@@ -5,7 +5,6 @@ export const FooterContainer = styled.div`
 
   height: 4rem;
   
-
   display: flex;
   justify-content: space-between;
   place-items: center;
@@ -30,7 +29,7 @@ export const FooterText = styled.div`
     font-size: 0.85rem;
   }
 
-  @media screen and (max-width: 948px) {
+  @media screen and (max-width: 950px) {
     display: none;
   }
 `;
@@ -60,7 +59,7 @@ export const MobileFooterButton = styled.button`
 
   animation: containerSmoothGlow 5s infinite;
 
-  @media screen and (max-width: 948px) {
+  @media screen and (max-width: 950px) {
     display: block;
   }
 `;
