@@ -25,6 +25,10 @@ Just god knows why do you want to run this locally but...
 
 **Font: https://fonts.google.com/specimen/Spectral+SC**
 
+**Click sfx: https://calamitymod.wiki.gg/wiki/File:StygianThrow.wav**
+
+**Title drop sfx: https://calamitymod.wiki.gg/wiki/File:DemonshadeEnrage.wav**
+
 <details>
 <summary style="font-weight: bold;">Disclaimer</summary>
 
