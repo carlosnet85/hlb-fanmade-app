@@ -20,7 +20,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
     if (isAnimating) {
       const timeout = setTimeout(() => {
         setIsAnimating(false);
-      }, 800);
+      }, 500);
 
       return () => clearTimeout(timeout);
     }

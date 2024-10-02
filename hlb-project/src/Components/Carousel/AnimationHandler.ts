@@ -1,7 +1,7 @@
 import { AnimationHandler, AnimationHandlerResponse } from "react-responsive-carousel/lib/ts/components/Carousel/types";
 
 export const customAnimationHandler: AnimationHandler = (_props, state): AnimationHandlerResponse => {
-    const transitionDuration = 'opacity 200ms, filter 3000ms, transform 800ms';
+    const transitionDuration = 'opacity 200ms, filter 3000ms, transform 500ms';
     const transitionTimingFunction = 'cubic-bezier(0.650, 0.030, 0.950, 0.970)';
 
     let slideStyle: React.CSSProperties = {

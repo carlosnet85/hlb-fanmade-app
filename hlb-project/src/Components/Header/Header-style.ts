@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`  
   width: 100%;
-  max-height: 8vh;
+
+  height: var(--header-height);
 
   display: flex;
   place-content: center;

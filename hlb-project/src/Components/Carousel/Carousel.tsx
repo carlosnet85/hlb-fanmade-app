@@ -1,22 +1,22 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
 
-import { customAnimationHandler } from "./AnimationHandler/AnimationHandler.ts";
+import { customAnimationHandler } from "./AnimationHandler.ts";
 import { Carousel } from "react-responsive-carousel";
-import { OptionCard } from "../DiscCard/DiscCard.tsx";
-import { CarouselPrevButton } from "./CarouselButtons/CarouselPrevButton/CarouselPrevButton.tsx";
-import { CarouselNextButton } from "./CarouselButtons/CarouselNextButton/CarouselNextButton.tsx";
-import { discs } from "../../Data/Data.ts";
+import { OptionCard } from "../SigilCard/SigilCard.tsx";
+import { sigils } from "../../Data/Data.ts";
 import { Context } from "../Context/Context.tsx";
 import { useContext } from "react";
+import { CarouselButton } from "./CarouselButton.tsx";
+
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
 export const CarouselContainer = styled.main`
     width: 100vw;
     display: flex;
-    place-items: center; 
     place-content: center;
-`
 
+`
 export const DiscsCarousel: React.FC = () => {
   const { isAnimating } = useContext(Context);
 
@@ -26,18 +26,18 @@ export const DiscsCarousel: React.FC = () => {
         showArrows
         showThumbs={false}
         showStatus={false}
-        showIndicators={true}
+        showIndicators={false}
         animationHandler={customAnimationHandler}
         swipeable={false}
         renderArrowPrev={(onClickHandler, hasPrev) => (
-          <CarouselPrevButton isDisabled={!hasPrev} onClick={onClickHandler} />
+          <CarouselButton isDisabled={!hasPrev} onClick={onClickHandler} ButtonIcon={FaChevronCircleLeft} left  />
         )}
         renderArrowNext={(onClickHandler, hasNext) => (
-          <CarouselNextButton isDisabled={!hasNext} onClick={onClickHandler} />
+          <CarouselButton isDisabled={!hasNext} onClick={onClickHandler} ButtonIcon={FaChevronCircleRight} right />
         )}
       >
-        {discs.map((disc) => (
-          <OptionCard key={disc.id} disc={disc} onAnimation={isAnimating} />
+        {sigils.map((sigil) => (
+          <OptionCard key={sigil.id} sigil={sigil} isOnAnimation={isAnimating} />
         ))}
       </Carousel>
     </CarouselContainer>

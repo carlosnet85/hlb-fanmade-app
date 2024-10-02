@@ -1,90 +1,36 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   width: 100%;
+  height: var(--footer-height);
 
-  height: 4rem;
-  
   display: flex;
-  justify-content: space-between;
-  place-items: center;
+  place-content: space-between;
+  place-items: end;
 
   a {
     text-decoration: none;
-    color: #959067;
+    color: transparent;
+    background: linear-gradient(45deg, #d8d2a1 0%, #979169 50%, #d8d2a1 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
     font-weight: bold;
 
     animation: textSmoothGlow 5s infinite;
   }
 `;
 
-export const FooterText = styled.div`
+export const FooterText = styled.div<{ $rtl?: boolean }>`
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 450;
 
-  padding: 0.5rem;
+  padding: 0 0.5rem;
 
-  @media screen and (max-width: 1110px) {
-    font-size: 0.85rem;
-  }
+  text-align: ${(props) => (props.$rtl ? "right" : "left")};
 
-  @media screen and (max-width: 950px) {
-    display: none;
-  }
-`;
+  @media screen and (max-width: 1160px) {
+    font-size: calc(0.9vw + 0.9vh);
 
-export const MobileFooterButton = styled.button`
-  display: none;
-
-  width: 2.5rem;
-  height: 2.5rem;
-
-  font-size: 1.5rem;
-  background: black;
-  color: #959667;
-
-  position: fixed;
-  place-items: center;
-  place-content: center;
-
-  bottom: 0;
-  left: 0;
-
-  z-index: 9999;
-  margin: 0.5rem;
-
-  border-radius: 100%;
-  border: 2px solid #959667;
-
-  animation: containerSmoothGlow 5s infinite;
-
-  @media screen and (max-width: 950px) {
-    display: block;
-  }
-`;
-
-export const MobileFooterContainer = styled.div<{ $showText: boolean }>`
-    display: none;
-
-    position: absolute;
-    top: 0;
-    
-    width: 100%;
-    padding: 1rem;
-    text-align: center;
-
-    opacity: ${(props) => (props.$showText ? "1" : "0")};
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: black;
-    color: white;
-
-    transition: opacity 500ms ease-in-out;
-
-    @media screen and (max-width: 948px) {
-         display: flex;
   }
 `;

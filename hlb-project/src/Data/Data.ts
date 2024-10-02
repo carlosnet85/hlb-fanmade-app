@@ -1,17 +1,17 @@
-import disc1 from '../assets/discs/01.png';
-import disc2 from '../assets/discs/02.png';
-import disc3 from '../assets/discs/03.png';
-import disc4 from '../assets/discs/04.png';
-import disc5 from '../assets/discs/05.png';
-import disc6 from '../assets/discs/06.png';
-import disc7 from '../assets/discs/07.png';
-import disc8 from '../assets/discs/08.png';
-import disc9 from '../assets/discs/09.png';
-import disc10 from '../assets/discs/10.png';
-import disc11 from '../assets/discs/11.png';
-import disc12 from '../assets/discs/12.png';
+import sigil1 from '../assets/sigils/01.png';
+import sigil2 from '../assets/sigils/02.png';
+import sigil3 from '../assets/sigils/03.png';
+import sigil4 from '../assets/sigils/04.png';
+import sigil5 from '../assets/sigils/05.png';
+import sigil6 from '../assets/sigils/06.png';
+import sigil7 from '../assets/sigils/07.png';
+import sigil8 from '../assets/sigils/08.png';
+import sigil9 from '../assets/sigils/09.png';
+import sigil10 from '../assets/sigils/10.png';
+import sigil11 from '../assets/sigils/11.png';
+import sigil12 from '../assets/sigils/12.png';
 
-export interface Disc {
+export interface Sigil {
     id: number;
     title: string; 
     description: string;
@@ -19,89 +19,90 @@ export interface Disc {
     image: string;
 } 
 
-export const discs: Disc[] = [
+export const sigils: Sigil[] = [
     {
         id: 1,
         title: 'Blood spilled',
-        description: 'When will you take the blame.',
+        description: 'When will you take the blame',
         redirectUrl: 'https://youtu.be/q9wnng4k9m4',
-        image: disc1
+        image: sigil1
     },
     {
         id: 2,
         title: 'Linger',
-        description: 'I Feel the pain become me.',
+        description: 'I Feel the pain become me',
         redirectUrl: 'https://youtu.be/qDuFp08G33A',
-        image: disc2,
+        image: sigil2,
     },
     {
         id: 3,
         title: 'Lifeless, Deathless',
-        description: 'The light inside you will fade.',
+        description: 'The light inside you will fade',
         redirectUrl: 'https://youtu.be/j4w9BdDzb1k ',
-        image: disc3
+        image: sigil3
     },
     {
         id: 4,
         title: 'Withering',
         redirectUrl: 'https://youtu.be/7W2XMyx7h9E',
-        description: 'A starless night upon us.',
-        image: disc4
+        description: 'A starless night upon us',
+        image: sigil4
     },
     {
         id: 5,
         title: 'Instill',
         redirectUrl: 'https://youtu.be/K6XCQ2QrMkk',
-        description: 'Let the world sing in despair.',
-        image: disc5
+        description: 'Let the world sing in despair',
+        image: sigil5
     },
     {
         id: 6,
         title: 'Labyrinthian',
-        description: 'Arterial paths extending.',
+        description: 'Arterial paths extending',
         redirectUrl: 'https://youtu.be/0QpSgqFs5oQ',
-        image: disc6
+        image: sigil6
     },
     {
         id: 7,
         title: 'Catastrophize',
-        description: 'I die with the world.',
+        description: 'I die with the world',
         redirectUrl: 'https://youtu.be/UoFQLXxkRZw',
-        image: disc7
+        image: sigil7
     },
     { 
         id: 8,
         title: 'Death Spiral',
-        description: 'You will know the truth before you die.',
+        description: 'You will know the truth before you die',
         redirectUrl: 'https://youtu.be/XP5YrdMnjzo',
-        image: disc8
+        image: sigil8
     },
     {
         id: 9,
         title: 'Shell',
-        description: 'You are a shell, inside of you, nothingness.',
+        description: 'You are a shell inside of you nothingness',
         redirectUrl: 'https://youtu.be/fVGIfZzfSRQ',
-        image: disc9
+        image: sigil9
     },
     {
         id: 10,
         title: 'Passage',
-        description: 'Communicate with divinity.',
+        description: 'Communicate with divinity',
         redirectUrl: 'https://youtu.be/4Zb1sWFDezA',
-        image: disc10
+        image: sigil10
     },
     { 
         id: 11,
         title: 'Burden',
         description: '???',
         redirectUrl: 'https://youtu.be/zcFiP21RQ90',
-        image: disc11
+        image: sigil11
     },
     {
         id: 12,
         title: 'Bearer',
-        description: 'Immeasurable pain.',
+        description: 'Immeasurable pain',
         redirectUrl: 'https://youtu.be/zcFiP21RQ90',
-        image: disc12
+        image: sigil12
     }
 ]
+
