@@ -17,8 +17,6 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Cinzel", serif;
         background-color: black;
         height: 100vh;
-
-        overflow: hidden;
     }
 
     @keyframes textSmoothGlow {
