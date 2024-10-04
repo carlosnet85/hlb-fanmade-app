@@ -1,28 +1,21 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`  
-  width: 100%;
+export const HeaderContainer = styled.header`
+  display: flex;
+  place-content: center;
+  place-items: start;
+
+  width: 100vw;
 
   height: var(--header-height);
 
-  display: flex;
-  place-content: center;
-  
 `;
 
 export const LogoContainer = styled.div`
-  width: 45vw;
-
+  width: calc(20vh + 10vw);
 `;
 
 export const Logo = styled.img`
-  width: 100%;
-  height: 100%;
-  
+  max-width: 100%;
   object-fit: contain;
-
- 
 `;
-
-
-

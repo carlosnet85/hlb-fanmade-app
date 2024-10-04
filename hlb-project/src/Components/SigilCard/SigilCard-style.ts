@@ -39,8 +39,8 @@ export const DiscLayer = styled.img<{
   left: 50%;
   transform: translate(-50%, -50%) rotate(0deg);
 
-  width: ${(props) => props.$size};
-  height: ${(props) => props.$size};
+  width: calc(${(props) => props.$size});
+  height: calc(${(props) => props.$size});
 
   object-fit: contain;
 
@@ -59,7 +59,7 @@ export const DiscLayer = styled.img<{
 
 export const CardTitle = styled.a<{ $isOnAnimation: boolean }>`
   position: relative;
-  font-size: calc(2.5vw + 2vh);
+  font-size: calc(2.5vw + 3vh);
   font-weight: bolder;
   text-decoration: none;
 
