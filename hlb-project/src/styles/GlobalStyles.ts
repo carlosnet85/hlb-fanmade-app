@@ -2,8 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root {
-        --footer-height: 4.5rem;
         --header-height: 4.5rem;
+        --primary-color: #84845e;
+        --secondary-color: #e9eae0;
     }
     
     *, *::after, *::before { 
@@ -18,22 +19,6 @@ const GlobalStyle = createGlobalStyle`
         background-color: black;
         height: 100vh;
     }
-
-    @keyframes textSmoothGlow {
-            0%, 100% {
-                text-shadow: 0 0 0px transparent;
-            } 50% {
-                text-shadow: 0 0 2px #e9eae0;
-            }
-        }
-
-    @keyframes containerSmoothGlow {
-            0%, 100% {
-                box-shadow: 0 0 0px transparent;
-            } 50% {
-                box-shadow: 0 0 5px #e9eae0;
-            }
-        }
 `
 
 export default GlobalStyle;

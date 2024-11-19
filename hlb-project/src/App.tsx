@@ -1,32 +1,15 @@
-import { Header } from "./Components/Header/Header";
-import GlobalStyle from "./style/GlobalStyle";
-import { DiscsCarousel } from "./Components/Carousel/Carousel";
-
-import { useState, useEffect } from "react";
-
-import { Footer } from "./Components/Footer/Footer";
-import { ContextProvider } from "./Components/Context/Context";
-import { Container } from "./Components/Container/Container";
+import Header from "./components/layout/Header";
+import GlobalStyle from "./styles/GlobalStyles";
+import Container from "./components/layout/Container";
+import SigilsGrid from "./components/layout/SigilsGrid";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <ContextProvider>
+    <Container>
       <GlobalStyle />
-      <Container isLoading={isLoading}>
-        <Header />
-        <DiscsCarousel />
-        <Footer />
-      </Container>
-    </ContextProvider>
+      <Header />
+      <SigilsGrid />
+    </Container>
   );
 }
 
