@@ -4,8 +4,7 @@ So uhh... yeah, this is a project built in React dedicated to [Humanity's Last B
 i've been really concerned for making this **Open Source** because of the messy code (sorry lol), but you know what? it works like a charm. 
 
 ## how it works? 
-
-Shortly, It has two arrows and type of "music gallery". Clicking on one of them redirects you to YouTube (more like, to the music itself). 
+Just click on a sigil lol it redirects you to a youtube music video
 
 ## How do i run this locally?
 Just god knows why do you want to run this locally but... 
@@ -24,10 +23,6 @@ Just god knows why do you want to run this locally but...
 **Discography: https://humanityslastbreathofficial.bandcamp.com/album/ashen**
 
 **Font: https://fonts.google.com/specimen/Spectral+SC**
-
-**Click sfx: https://calamitymod.wiki.gg/wiki/File:StygianThrow.wav**
-
-**Title drop sfx: https://calamitymod.wiki.gg/wiki/File:DemonshadeEnrage.wav**
 
 <details>
 <summary style="font-weight: bold;">Disclaimer</summary>
