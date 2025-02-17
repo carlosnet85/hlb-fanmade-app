@@ -33,7 +33,7 @@ const InfoWrapper: React.FC = () => {
         $onContentLoad={!isContentLoading}
         $showInfo={showInfo}
         onClick={(e) => {
-          e.stopPropagation(); 
+          e.stopPropagation();
           setShowInfo(!showInfo);
         }}
       >
@@ -41,36 +41,34 @@ const InfoWrapper: React.FC = () => {
       </S.InfoButton>
       <S.InfoContainer ref={infoContainerRef} $showInfo={showInfo}>
         <S.InfoText>
-          <span>
-            Hi there! This is a{" "}
-            <a
-              href="https://github.com/carlosnet85/hlb-fanmade-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              silly project
-            </a>{" "}
-            I created just for fun (and, honestly, because I was bored). I want
-            to clarify that I do not own any of the assets or images used in
-            this project. They are all the property of the band{" "}
-            <a
-              href="https://www.last.fm/music/Humanity%27s+Last+Breath"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Humanity's Last Breath
-            </a>
-            , specifically from their album{" "}
-            <a
-              href="https://www.last.fm/music/Humanity%27s+Last+Breath/Ashen"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ashen
-            </a>
-            . This project is purely non-commercial and was made as a personal
-            experiment. Please don't smash me.
-          </span>
+          Hi there! This is a{" "}
+          <S.InfoLink
+            href="https://github.com/carlosnet85/hlb-fanmade-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            silly project
+          </S.InfoLink>
+          {" "}I created just for fun (and, honestly, because I was bored). I want to
+          clarify that I do not own any of the assets or images used in this
+          project. They are all the property of the band{" "}
+          <S.InfoLink
+            href="https://www.last.fm/music/Humanity%27s+Last+Breath"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Humanity's Last Breath
+          </S.InfoLink>
+          , specifically from their album{" "}
+          <S.InfoLink
+            href="https://www.last.fm/music/Humanity%27s+Last+Breath/Ashen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ashen.
+          </S.InfoLink>
+          {" "}This project is purely non-commercial and was made as a personal
+          experiment. Please don't smash me.
         </S.InfoText>
       </S.InfoContainer>
     </>

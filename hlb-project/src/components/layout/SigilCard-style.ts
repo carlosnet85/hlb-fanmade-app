@@ -18,23 +18,33 @@ const rotateReverse = keyframes`
   }
 `;
 
-export const SigilCardContainer = styled.div`
+export const SigilCardContainer = styled.div<{ isSelected: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
   place-content: center;
   place-items: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+
+  width: ${({ isSelected }) => (isSelected ? "70vw" : "100%")};
+  height: ${({ isSelected }) => (isSelected ? "70vh" : "100%")};
+  grid-column: ${({ isSelected }) => (isSelected ? "1 / -1" : "auto")};
+
   transition: opacity .3s, transform .3s, filter .6s;
   transition-timing-function: ease;
-  cursor: pointer;
+ 
+  cursor: ${({ isSelected }) => (isSelected ? "pointer" : "zoom-in")};
 
   &:hover {
     filter: brightness(1.5);
   }
+
+  ${({ isSelected }) =>
+    isSelected &&
+    `
+      p {
+        display: none;
+      }
+  `}
 `;
 
 export const SigilContainer = styled.div`
@@ -42,7 +52,7 @@ export const SigilContainer = styled.div`
   display: inline-flex;
   place-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   transition: transform 500ms, filter 500ms;
   transition-timing-function: ease-in-out;
 `;

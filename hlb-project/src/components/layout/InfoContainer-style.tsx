@@ -9,7 +9,6 @@ const buttonSlide = keyframes`
   }
 `;
 
-
 export const InfoContainer = styled.section<{ $showInfo: boolean }>`
   display: flex;
   place-content: center;
@@ -45,22 +44,17 @@ export const InfoContainer = styled.section<{ $showInfo: boolean }>`
 `;
 
 export const InfoText = styled.div`
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: center;
-
   text-align: justify;
   color: var(--secondary-color);
 
   font-size: calc(0.8rem + 0.333vw);
+`;
 
-  a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: 600;
-    text-shadow: 0px 0px 3px var(--primary-color);
-  }
+export const InfoLink = styled.a`
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-shadow: 0px 0px 3px var(--primary-color);
 `;
 
 export const InfoButton = styled.button<{
@@ -93,10 +87,9 @@ export const InfoButton = styled.button<{
   animation: ${(props) => (props.$onContentLoad ? buttonSlide : "none")} 1.1s
     cubic-bezier(0.23, 1, 0.32, 1) forwards 2s;
 
+  transform: translateY(-100px);
   opacity: ${({ $onContentLoad }) => ($onContentLoad ? "1" : "0")};
 
   transition: all 350ms;
   cursor: pointer;
 `;
-
-

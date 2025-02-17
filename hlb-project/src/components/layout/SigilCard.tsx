@@ -8,15 +8,25 @@ import { Sigil } from "../../data/SigilsData";
 
 interface SigilCardProps {
   sigil: Sigil;
+  isSelected: boolean;
+  onClick: () => void;
 }
 
-const SigilCard: React.FC<SigilCardProps> = ({ sigil }) => {
+const SigilCard: React.FC<SigilCardProps> = ({
+  sigil,
+  isSelected,
+  onClick,
+}) => {
   function handleClick() {
-    window.open(sigil.redirectUrl, "_blank");
+    onClick();
+
+    if (isSelected) {
+      window.open(sigil.redirectUrl, "_blank");
+    }
   }
 
   return (
-    <S.SigilCardContainer onClick={handleClick}>
+    <S.SigilCardContainer isSelected={isSelected} onClick={handleClick}>
       <S.SigilContainer>
         <S.SigilLayer
           src={sigilLayer01}

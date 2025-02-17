@@ -57,7 +57,7 @@ export const LogoContainer = styled.div`
   display: inline-flex;
   place-content: center;
 
-  height: min(100%, 16vw);
+  height: min(100%, 12vw);
   animation: ${scaleDown} 2000ms cubic-bezier(0, 1.18, 1, 0.72) forwards;
 `;
 

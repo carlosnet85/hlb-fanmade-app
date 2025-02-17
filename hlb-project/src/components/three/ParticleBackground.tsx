@@ -33,7 +33,7 @@ const ParticleBackground: React.FC = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     containerRef.current?.appendChild(renderer.domElement);
 
-    const particleCount = 300;
+    const particleCount = 200;
     const particles = new THREE.BufferGeometry();
     const positions: number[] = [];
     const swaySpeeds: number[] = [];
@@ -45,7 +45,7 @@ const ParticleBackground: React.FC = () => {
         Math.random() * 30 - 15,    // y 
         (Math.random() - 0.5) * 20  // z
       );      
-      swaySpeeds.push((Math.random() - 0.5) * 0.02); 
+      swaySpeeds.push((Math.random() - 0.5) * 0.08); 
       ySpeeds.push(Math.random() * 0.04 + 0.01); 
     }
 
@@ -59,8 +59,8 @@ const ParticleBackground: React.FC = () => {
       transparent: true,        
       blending: THREE.AdditiveBlending,
       depthTest: false,
-      size: 0.1,                
-      sizeAttenuation: true,    
+      size: 2.5,                
+      sizeAttenuation: false,    
     });
 
     const particleSystem = new THREE.Points(particles, particleMaterial);
