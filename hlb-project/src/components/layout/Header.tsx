@@ -1,7 +1,6 @@
 import * as S from "./Header-style";
-import logo from "../../assets/hlb-logo.webp";
+import logo from "../../assets/hlb-logo.png";
 
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import InfoWrapper from "./InfoContainer";
@@ -12,7 +11,7 @@ const Header: React.FC = () => {
   return (
     <>
       <S.HeaderContainer $onContentLoad={!isContentLoading}>
-        <S.LogoContainer>
+        <S.LogoContainer $onContentLoad={!isContentLoading}>
           <S.Logo
             src={logo}
             onClick={() => {
@@ -22,9 +21,7 @@ const Header: React.FC = () => {
         </S.LogoContainer>
       </S.HeaderContainer>
       <InfoWrapper />
-      <S.LoadingShit $onContentLoad={!isContentLoading}>
-        Loading content... <AiOutlineLoading3Quarters />
-      </S.LoadingShit>
+  
     </>
   );
 };
