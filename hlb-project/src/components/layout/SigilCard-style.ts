@@ -18,27 +18,27 @@ const rotateReverse = keyframes`
   }
 `;
 
-export const SigilCardContainer = styled.div<{ isSelected: boolean }>`
+export const SigilCardContainer = styled.div<{ $isSelected: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
   place-content: center;
   place-items: center;
 
-  width: ${({ isSelected }) => (isSelected ? "70vw" : "100%")};
-  height: ${({ isSelected }) => (isSelected ? "70vh" : "100%")};
-  grid-column: ${({ isSelected }) => (isSelected ? "1 / -1" : "auto")};
+  width: ${({ $isSelected: isSelected }) => (isSelected ? "70vw" : "100%")};
+  height: ${({ $isSelected: isSelected }) => (isSelected ? "70vh" : "100%")};
+  grid-column: ${({ $isSelected: isSelected }) => (isSelected ? "1 / -1" : "auto")};
 
   transition: opacity .3s, transform .3s, filter .6s;
   transition-timing-function: ease;
  
-  cursor: ${({ isSelected }) => (isSelected ? "pointer" : "zoom-in")};
+  cursor: ${({ $isSelected: isSelected }) => (isSelected ? "pointer" : "zoom-in")};
 
   &:hover {
     filter: brightness(1.5);
   }
 
-  ${({ isSelected }) =>
+  ${({ $isSelected: isSelected }) =>
     isSelected &&
     `
       p {

@@ -27,7 +27,7 @@ const gradientAnimation = keyframes`
   }
 `;
 
-export const HeaderContainer = styled.header<{ $onContentLoad: boolean }>`
+export const HeaderContainer = styled.header<{ $showHeader: boolean; $onContentLoad: boolean }>`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -37,10 +37,12 @@ export const HeaderContainer = styled.header<{ $onContentLoad: boolean }>`
   place-items: center;
 
   width: 100vw;
-  height: var(--header-height);
+  height: ${({ $showHeader }) => ($showHeader ? "var(--header-height)" : 0)};
 
   animation: ${(props) =>
     props.$onContentLoad ? toTop : "none"} 1000ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+    transition: height 0.5s ease-out;
 `;
 
 export const LogoContainer = styled.div<{ $onContentLoad: boolean }>`

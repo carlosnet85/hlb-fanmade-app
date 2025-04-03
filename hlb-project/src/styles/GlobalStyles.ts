@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     :root {
         --header-height: 4.5rem;
-        --primary-color: #84845e;
-        --secondary-color: #e9eae0;
+        --primary-color:rgb(132, 132, 94);
+        --secondary-color:rgb(204, 200, 172);
     }
     
     *, *::after, *::before { 

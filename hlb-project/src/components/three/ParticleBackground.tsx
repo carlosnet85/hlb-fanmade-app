@@ -4,7 +4,7 @@ import circle from '../../assets/circle.png';
 import { LoadingContext } from '../context/LoadingContext';
 import styled from 'styled-components';
 
-const ParticleBackgroundContainer = styled.div<{ $onContentLoad: boolean }>`
+const ParticleBackgroundContainer = styled.div<{ $onContentLoad: boolean, $showParticles: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ const ParticleBackgroundContainer = styled.div<{ $onContentLoad: boolean }>`
   height: 100%;
 
   overflow: hidden;
-  opacity: ${props => props.$onContentLoad ? 1 : 0};
+  opacity: ${props => props.$onContentLoad && props.$showParticles ? 1 : 0};
 
   z-index: 696969;
   pointer-events: none;
@@ -23,7 +23,7 @@ const ParticleBackgroundContainer = styled.div<{ $onContentLoad: boolean }>`
 
 const ParticleBackground: React.FC = () => {
 
-  const { isContentLoading } = useContext(LoadingContext);
+  const { isContentLoading, showParticles } = useContext(LoadingContext);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const ParticleBackground: React.FC = () => {
   }, [isContentLoading]);
 
   return (
-    <ParticleBackgroundContainer ref={containerRef} $onContentLoad={!isContentLoading} />
+    <ParticleBackgroundContainer ref={containerRef} $onContentLoad={!isContentLoading} $showParticles={showParticles} />
   );
 };
 

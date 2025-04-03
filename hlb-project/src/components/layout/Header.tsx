@@ -3,14 +3,12 @@ import logo from "../../assets/hlb-logo.png";
 
 import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
-import InfoWrapper from "./InfoContainer";
 
 const Header: React.FC = () => {
-  const { isContentLoading } = useContext(LoadingContext);
+  const { isContentLoading, showHeader } = useContext(LoadingContext);
 
   return (
-    <>
-      <S.HeaderContainer $onContentLoad={!isContentLoading}>
+      <S.HeaderContainer $showHeader={showHeader} $onContentLoad={!isContentLoading}>
         <S.LogoContainer $onContentLoad={!isContentLoading}>
           <S.Logo
             src={logo}
@@ -20,9 +18,6 @@ const Header: React.FC = () => {
           />
         </S.LogoContainer>
       </S.HeaderContainer>
-      <InfoWrapper />
-  
-    </>
   );
 };
 

@@ -3,6 +3,7 @@ import GlobalStyle from "./styles/GlobalStyles";
 import Container from "./components/layout/Container";
 import SigilsGrid from "./components/layout/SigilsGrid";
 import ParticleBackground from "./components/three/ParticleBackground";
+import { SectionInfo } from "./components/layout/SectionInfo";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <SigilsGrid />
       <ParticleBackground />
+      <SectionInfo />
     </Container>
   );
 }

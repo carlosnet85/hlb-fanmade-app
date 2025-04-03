@@ -2,11 +2,11 @@ import * as S from "./SigilsGrid-style";
 import { Sigil, sigils } from "../../data/SigilsData";
 import { useContext, useRef, useState } from "react";
 import { LoadingContext } from "../context/LoadingContext";
-
+import { FaBackward } from "react-icons/fa";
 import SigilCard from "./SigilCard";
 
 const SigilsGrid: React.FC = () => {
-  const { isContentLoading } = useContext(LoadingContext);
+  const { isContentLoading, showHeader } = useContext(LoadingContext);
   const selectedSigil = useRef<Sigil | null>(null);
   const [showAll, setShowAll] = useState<boolean>(true);
 
@@ -24,7 +24,7 @@ const SigilsGrid: React.FC = () => {
 
   return (
     <div>
-      <S.SigilsGrid $onContentLoad={!isContentLoading}>
+      <S.SigilsGrid $showHeader={showHeader} $onContentLoad={!isContentLoading}>
         {displayedSigils.map((sigil) => (
           <SigilCard
             key={sigil.id}
@@ -35,7 +35,8 @@ const SigilsGrid: React.FC = () => {
         ))}
       </S.SigilsGrid>
       {!showAll && (
-        <S.ReturnButton onClick={handleClearSelection}>Return</S.ReturnButton>
+        <S.OptionButton $showHeader={showHeader} onClick={handleClearSelection}><FaBackward /></S.OptionButton>
+        
       )}
     </div>
   );

@@ -38,7 +38,7 @@ const SigilCard: React.FC<SigilCardProps> = ({
   }
 
   return (
-    <S.SigilCardContainer isSelected={isSelected} onClick={handleClick}>
+    <S.SigilCardContainer $isSelected={isSelected} onClick={handleClick}>
       <S.SigilContainer>
         {randomLayers.map((layer) => (
           <S.SigilLayer

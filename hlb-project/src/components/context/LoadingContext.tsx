@@ -2,6 +2,12 @@ import React, { createContext, ReactNode, useState, useEffect, useMemo } from "r
 
 interface LoadingContextData {
   isContentLoading: boolean;
+  showBackground: boolean;
+  setShowBackground: React.Dispatch<React.SetStateAction<boolean>>;
+  showParticles: boolean;
+  setShowParticles: React.Dispatch<React.SetStateAction<boolean>>;
+  showHeader: boolean;
+  setShowHeader: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const LoadingContext = createContext<LoadingContextData>({} as LoadingContextData);
@@ -12,6 +18,9 @@ interface LoadingContextProviderProps {
 
 export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ children }) => {
   const [isContentLoading, setIsContentLoading] = useState(true);
+  const [showBackground, setShowBackground] = useState(false);
+  const [showParticles, setShowParticles] = useState(true);
+  const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
     const images = Array.from(document.querySelectorAll("img"));
@@ -23,13 +32,14 @@ export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ 
 
       if (allImagesLoaded) {
         setTimeout(() => {
+          setShowBackground(true);
           setIsContentLoading(false);
-        }, 3000);
+        }, 4000);
       }
     };
 
     images.forEach((img) => img.addEventListener("load", handleImageLoad));
-    images.forEach((img) => img.addEventListener("error", handleImageLoad)); 
+    images.forEach((img) => img.addEventListener("error", handleImageLoad));
 
     handleImageLoad();
 
@@ -37,10 +47,20 @@ export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ 
       images.forEach((img) => img.removeEventListener("load", handleImageLoad));
       images.forEach((img) => img.removeEventListener("error", handleImageLoad));
     };
-  }, []); 
+  }, []);
+
+  const contextValue = useMemo(() => ({
+    isContentLoading,
+    showBackground,
+    setShowBackground,
+    showParticles,
+    setShowParticles,
+    showHeader,
+    setShowHeader
+  }), [isContentLoading, showBackground, showParticles, showHeader]);
 
   return (
-    <LoadingContext.Provider value={useMemo(() => ({ isContentLoading }), [isContentLoading])}>
+    <LoadingContext.Provider value={contextValue}>
       {children}
     </LoadingContext.Provider>
   );
