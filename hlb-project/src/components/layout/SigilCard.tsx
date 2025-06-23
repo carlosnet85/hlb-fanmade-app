@@ -7,6 +7,7 @@ import sigilLayer04 from "../../assets/sigils/sigilLayer04.png";
 import sigilLayer05 from "../../assets/sigils/sigilLayer05.png";
 
 import { Sigil } from "../../data/SigilsData";
+import { useMemo } from "react";
 
 interface SigilCardProps {
   sigil: Sigil;
@@ -24,10 +25,12 @@ const SigilCard: React.FC<SigilCardProps> = ({
     return shuffled.slice(0, count);
   }
 
-  const randomLayers = getRandomLayers(
-    [sigilLayer01, sigilLayer02, sigilLayer03, sigilLayer04, sigilLayer05],
-    3
-  );
+  const randomLayers = useMemo(() => {
+    return getRandomLayers(
+      [sigilLayer01, sigilLayer02, sigilLayer03, sigilLayer04, sigilLayer05],
+      3
+    );
+  }, []);
 
   function handleClick() {
     onClick();
