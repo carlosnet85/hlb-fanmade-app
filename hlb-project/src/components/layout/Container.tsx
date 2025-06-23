@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import bg from "../../assets/background.jpg"
 
-const StyledContainer = styled.section<{  children: React.ReactNode, $showBackground: boolean }>`
+const StyledContainer = styled.section<{  children: React.ReactNode, isContentLoading: boolean, $showBackground: boolean }>`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ const StyledContainer = styled.section<{  children: React.ReactNode, $showBackgr
     width: 100%;
     height: 100%;
     background: url(${bg}) no-repeat center center;
-    opacity: ${({ $showBackground }) => ($showBackground ? "0.3" : "0")};
+    opacity: ${({ $showBackground, isContentLoading }) => ($showBackground && !isContentLoading ? "0.3" : "0")};
 
     z-index: -1;
 
@@ -27,9 +27,9 @@ const StyledContainer = styled.section<{  children: React.ReactNode, $showBackgr
 `;
 
 const Container = ({ children }: { children: React.ReactNode }) => {
-  const { showBackground } = useContext(LoadingContext);
+  const { isContentLoading, showBackground } = useContext(LoadingContext);
 
-  return <StyledContainer $showBackground={showBackground}>{children}</StyledContainer>;
+  return <StyledContainer isContentLoading={isContentLoading} $showBackground={showBackground}>{children}</StyledContainer>;
 };
 
 export default Container;

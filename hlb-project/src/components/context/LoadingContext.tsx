@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useState, useEffect, useMemo } from "react";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 interface LoadingContextData {
   isContentLoading: boolean;
@@ -18,8 +19,9 @@ interface LoadingContextProviderProps {
 
 export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ children }) => {
   const [isContentLoading, setIsContentLoading] = useState(true);
-  const [showBackground, setShowBackground] = useState(false);
-  const [showParticles, setShowParticles] = useState(true);
+  const [showBackground, setShowBackground] = useLocalStorage<boolean>("showBackground", false);
+  const [showParticles, setShowParticles] = useLocalStorage<boolean>("showParticles", true);
+
   const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
@@ -32,7 +34,6 @@ export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ 
 
       if (allImagesLoaded) {
         setTimeout(() => {
-          setShowBackground(true);
           setIsContentLoading(false);
         }, 4000);
       }
@@ -47,7 +48,7 @@ export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ 
       images.forEach((img) => img.removeEventListener("load", handleImageLoad));
       images.forEach((img) => img.removeEventListener("error", handleImageLoad));
     };
-  }, []);
+  }, [setShowBackground, setShowHeader, setShowParticles]);
 
   const contextValue = useMemo(() => ({
     isContentLoading,
@@ -57,7 +58,7 @@ export const LoadingContextProvider: React.FC<LoadingContextProviderProps> = ({ 
     setShowParticles,
     showHeader,
     setShowHeader
-  }), [isContentLoading, showBackground, showParticles, showHeader]);
+  }), [isContentLoading, showBackground, setShowBackground, showParticles, setShowParticles, showHeader, setShowHeader]);
 
   return (
     <LoadingContext.Provider value={contextValue}>
