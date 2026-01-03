@@ -1,25 +1,24 @@
 import { useState, useEffect } from "react";
 
 function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const [value, setValue] = useState<T>(() => {
     try {
-      const item = localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : initialValue;
-    } catch (error) {
-      console.warn("Bad parsed value to local storage on getItem(), returning initial value for debug purposes:", error);
+      const stored = localStorage.getItem(key);
+      return stored ? JSON.parse(stored) : initialValue;
+    } catch {
       return initialValue;
     }
   });
 
   useEffect(() => {
     try {
-      localStorage.setItem(key, JSON.stringify(storedValue));
-    } catch (error) {
-      console.warn("Bad parsed value to local storage on setItem(), returning initial value for debug purposes:", error);
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch {
+      // A
     }
-  }, [key, storedValue]);
+  }, [key, value]);
 
-  return [storedValue, setStoredValue] as const;
+  return [value, setValue] as const;
 }
 
 export default useLocalStorage;

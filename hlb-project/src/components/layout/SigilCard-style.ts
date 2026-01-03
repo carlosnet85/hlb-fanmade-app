@@ -1,22 +1,5 @@
-import styled, { keyframes } from "styled-components";
-
-const rotate = keyframes`
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-`;
-
-const rotateReverse = keyframes`
-  0% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-`;
+import styled from "styled-components";
+import { pulse, rotate, rotateReverse } from "../../styles/Animations";
 
 export const SigilCardContainer = styled.div<{ $isSelected: boolean }>`
   position: relative;
@@ -25,26 +8,26 @@ export const SigilCardContainer = styled.div<{ $isSelected: boolean }>`
   place-content: center;
   place-items: center;
 
-  width: ${({ $isSelected: isSelected }) => (isSelected ? "70vw" : "100%")};
-  height: ${({ $isSelected: isSelected }) => (isSelected ? "70vh" : "100%")};
-  grid-column: ${({ $isSelected: isSelected }) => (isSelected ? "1 / -1" : "auto")};
+  width: ${({ $isSelected }) => ($isSelected ? "90vw" : "100%")};
+  height: ${({ $isSelected }) => ($isSelected ? "90vh" : "100%")};
+  grid-column: ${({ $isSelected }) => ($isSelected ? "1 / -1" : "auto")};
 
-  transition: opacity .3s, transform .3s, filter .6s;
-  transition-timing-function: ease;
- 
-  cursor: ${({ $isSelected: isSelected }) => (isSelected ? "pointer" : "zoom-in")};
+  transition: ${({ $isSelected }) => ($isSelected ? "none" : "filter 0.4s")};
+  cursor: ${({ $isSelected }) => ($isSelected ? "default" : "zoom-in")};
 
-  &:hover {
-    filter: brightness(1.5);
+  p {
+    display: ${({ $isSelected }) => ($isSelected ? "none" : "flex")};
   }
 
-  ${({ $isSelected: isSelected }) =>
-    isSelected &&
-    `
+    &:hover {
+      filter: ${({ $isSelected }) => ($isSelected ? "brightness(1)" : "brightness(2)")};
+
       p {
-        display: none;
+        animation: ${pulse} 3s infinite linear;
       }
-  `}
+    }
+
+  z-index: var(--layer-2);
 `;
 
 export const SigilContainer = styled.div`
@@ -58,17 +41,17 @@ export const SigilContainer = styled.div`
 `;
 
 export const SigilLabel = styled.p`
-  font-size: calc(1vw + 1.2vh);
+  font-size: calc(0.7vw + 1.2vh);
   font-weight: 500;
-  text-decoration: none;
-  white-space: nowrap;
   color: var(--secondary-color);
-  
-  text-shadow: 0px 0px 10px var(--primary-color);
-  background: none;
-  transition: color 300ms, text-shadow 300ms;
+ 
+  white-space: nowrap;
+  margin: 0;
+  display: flex;
+  gap: 0.08em;
+  align-items: center;
+  justify-content: center;
 `;
-
 
 export const SigilLayer = styled.img<{
   $size: string;
@@ -83,7 +66,8 @@ export const SigilLayer = styled.img<{
   height: ${(props) => props.$size};
   object-fit: contain;
   animation: ${(props) =>
-      props.$reverseRotation ? rotateReverse : rotate}
+    props.$reverseRotation ? rotateReverse : rotate}
     ${(props) => props.$rotateSpeed} infinite linear;
 `;
+
 

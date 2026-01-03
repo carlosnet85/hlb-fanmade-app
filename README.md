@@ -1,36 +1,38 @@
-# As the title suggests 
-So uhh... yeah, this is a project built in React dedicated to [Humanity's Last Breath](https://humanitys-last-breath.com/) metal band, they are just insane. 
+Silly visualizer that I made in my free time for Humanity’s Last Breath (And when I mean free time, yeah).
 
-i've been really concerned for making this **Open Source** because of the messy code (sorry lol), but you know what? it works like a charm. 
-
-## how it works? 
-Just click on a sigil lol it redirects you to a youtube music video
-
-## How do i run this locally?
-Just god knows why do you want to run this locally but... 
-
-1. Install [node.js](https://nodejs.org/en/download), must be 18.0+ version or the package manager will whine.
-2. Clone/Download this repo.
-3. Open terminal.
-4. `cd` the main folder (which is hlb-project).
-5. `npm install` to fill your disk with trashy files.
-6. Type `npm run dev`.
-7. Now prob running in http://localhost:5173.
-
-## Sources
-**Sigils: https://f4.bcbits.com/img/0032346489_130.jpg**
-
-**Discography: https://humanityslastbreathofficial.bandcamp.com/album/ashen**
-
-**Font: https://fonts.google.com/specimen/Spectral+SC**
+--- 
 
 <details>
-<summary style="font-weight: bold;">Disclaimer</summary>
+<summary style="font-weight:bold;"> sources </summary>
 
-### Just to clarify, I dont have any associations with the band.
-### If the band wants me to take the site down, just mail me at [carlos.victornet85@gmail.com](mailto:carlos.victornet85@gmail.com)
+All the art from the band was made from [Adrian Baxter](https://www.instagram.com/adrian__baxter/) and [C. Saros](https://www.instagram.com/eyeofsaros/). They arts are genuenily fanstastic.
+
+- [Ashen sigils](https://f4.bcbits.com/img/0032346489_130.jpg)  
+I could not find anywhere else beside bandcamp cdn
+- [Background](https://a5.mzstatic.com/us/r1000/0/Music127/v4/87/08/f6/8708f6c0-a373-6fec-c534-9f5890e06316/859721849586_cover.jpg)  
+It is a tweak version of abyssal mouth cover art with oil paint filter
+- [Anthracite sigil](https://a5.mzstatic.com/us/r1000/0/Music221/v4/d8/c5/4a/d8c54a95-6170-7f73-3339-53853b20f225/196872961461.jpg)  
+The original cover art has no animation.
+- [Discography](https://humanityslastbreathofficial.bandcamp.com/album/ashen)
+- [Font - Spectral SC](https://fonts.google.com/specimen/Spectral+SC)
+- [Font - Helvetica Now Pro Display Black](https://www.myfonts.com/pt/products/display-black-helvetica-now-347268/)
+
 </details>
+<details>
+<summary style="font-weight:bold;"> run locally </summary>
 
+1. Run a github codespace instance of this repository
+2. Open a terminal.  
+3. `cd hlb-project`  
+4. `npm install && npm run dev` 
+5. done
 
+</details>
+<details>
+<summary style="font-weight:bold;">disclaimer</summary>
 
+- I have **zero association** with Humanity’s Last Breath.  
+- This is just for brain damage.
+- thanks for reading.
 
+</details>
