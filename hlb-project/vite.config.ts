@@ -6,21 +6,17 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate', // Atualiza o Service Worker automaticamente
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'], // Assets na pasta public
+      registerType: 'autoUpdate', 
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       workbox: {
-        // Aqui está a mágica: ele vai caçar todos esses arquivos no build e salvar no cache
         globPatterns: ['**/*.{js,css,html,png,svg,jpg,jpeg,webp}'],
-        
-        // Se suas imagens forem muito grandes, o Workbox pode ignorá-las por padrão. 
-        // Aumente o limite se necessário (ex: 5MB):
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, 
       },
       manifest: {
-        name: 'Sigils Gallery',
-        short_name: 'Sigils',
-        description: 'Galeria de Sigilos Thall',
-        theme_color: '#000000', // Alinhado com o tema dark/metal
+        name: 'cache',
+        short_name: 'cache',
+        description: 'cache',
+        theme_color: '#000000', 
         icons: [
           {
             src: 'pwa-192x192.png',
